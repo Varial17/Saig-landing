@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAIG — Localised AI inference, hosted in Australia</title>
+<meta name="description" content="SAIG (Secure Artificial Intelligence Grid) gives Australian businesses secure access to leading AI models through chat and workflows, on Australian-owned infrastructure in Sydney.">
+<meta name="theme-color" content="#F5F1E8">
+
+<!-- SITE URL: replace every https://saig.com.au below with the real domain
+     once it's pointed at Cloudflare Pages (also in robots.txt + sitemap.xml). -->
+<link rel="canonical" href="https://saig.com.au/">
+<meta property="og:url" content="https://saig.com.au/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SAIG">
+<meta property="og:title" content="SAIG — Localised AI inference, hosted in Australia">
+<meta property="og:description" content="Access leading AI models through secure, Australian-owned infrastructure. Use them in chat, workflows, and business operations, all in one place.">
+<meta property="og:image" content="https://saig.com.au/assets/hero-bg.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="/assets/hero-bg.webp" type="image/webp">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#top">Skip to content</a>
+
+<header class="site-header">
+  <div class="nav-pill">
+    <a class="brand" href="#top">
+      <img src="/assets/saig-logo.png" alt="SAIG" width="432" height="220">
+      <span class="brand-tag">Secure AI Grid</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="#sage-cloud">Sage Cloud</a>
+      <span class="nav-star" aria-hidden="true">&#10035;</span>
+      <a class="nav-link" href="#sage-chat">Sage Chat</a>
+      <span class="nav-star" aria-hidden="true">&#10035;</span>
+      <a class="nav-link" href="#security">Security</a>
+      <span class="nav-star" aria-hidden="true">&#10035;</span>
+      <a class="nav-link" href="#models">Models</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-outline" data-cta="login" href="#sage-chat">Login</a>
+      <a class="btn btn-primary" data-cta="book" href="#book">Book a call</a>
+    </div>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <a href="#sage-cloud">Sage Cloud</a>
+    <a href="#sage-chat">Sage Chat</a>
+    <a href="#security">Security</a>
+    <a href="#models">Models</a>
+    <div class="mobile-menu-actions">
+      <a class="btn btn-outline" data-cta="login" href="#sage-chat">Login to Sage Chat</a>
+      <a class="btn btn-primary" data-cta="book" href="#book">Book a call</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ── Hero ─────────────────────────────────────────────────────────── -->
+<section class="hero" id="top">
+  <div class="hero-bg" data-parallax aria-hidden="true"></div>
+  <div class="hero-veil" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="hero-badges">
+      <div class="badge">
+        <span class="dot-blink" aria-hidden="true"></span>
+        Australian-owned AI infrastructure
+      </div>
+      <span class="stamp">EST. SYDNEY &#10035; AU-OWNED</span>
+    </div>
+
+    <h1 class="hero-title">
+      Localised AI inference for
+      <em class="rotator"><span data-rotator>chat</span></em>,<br>
+      hosted in Australia.
+    </h1>
+
+    <p class="hero-sub">Access leading AI models through secure, Australian-owned infrastructure. Use them in chat, workflows, and business operations, all in one place.</p>
+
+    <div class="hero-ctas">
+      <a class="btn btn-primary btn-lg" data-cta="book" href="#book">Book a call</a>
+      <a class="btn btn-glass btn-lg" data-cta="login" href="#sage-chat">Login to Sage Chat</a>
+    </div>
+  </div>
+
+  <div class="hero-cards">
+    <!-- Map card -->
+    <div class="card hero-card-map">
+      <div class="card-head">
+        <span class="eyebrow eyebrow-green">Sydney data centre</span>
+        <span class="mono-tag">AU-SYD-01</span>
+      </div>
+      <div class="hero-map-slot">
+        <div class="map-wrap map-wrap-sm">
+          <img src="/assets/australia.svg" alt="Map of Australia showing the Sydney data centre" width="800" height="755">
+          <span class="map-dot" aria-hidden="true"></span>
+          <span class="map-chip">SYDNEY &#10035; LIVE</span>
+        </div>
+      </div>
+      <div class="hero-tiles">
+        <div class="tile"><div class="tile-title">Data integrity</div><div class="tile-sub">Never leaves AU</div></div>
+        <div class="tile"><div class="tile-title">Secure access</div><div class="tile-sub">Controlled by you</div></div>
+        <div class="tile"><div class="tile-title">AU-owned</div><div class="tile-sub">Sovereign infra</div></div>
+      </div>
+    </div>
+
+    <!-- Chat preview card -->
+    <div class="card hero-card-chat">
+      <div class="card-head">
+        <span class="eyebrow eyebrow-green">Sage Chat</span>
+        <span class="pill-tag">Claude &#9662;</span>
+      </div>
+      <div class="bubble bubble-user">Summarise this supplier contract for me.</div>
+      <div class="bubble bubble-ai"><span data-typed></span><span class="caret" aria-hidden="true"></span></div>
+      <div class="fake-input">Ask anything&hellip;<span class="fake-send" aria-hidden="true"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Model marquee ────────────────────────────────────────────────── -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-run">OpenAI <i>&#10035;</i> Anthropic Claude <i>&#10035;</i> Google Gemini <i>&#10035;</i> Meta Llama <i>&#10035;</i> Mistral <i>&#10035;</i> Qwen <i>&#10035;</i> DeepSeek <i>&#10035;</i> Open Source <i>&#10035;</i></span>
+    <span class="marquee-run">OpenAI <i>&#10035;</i> Anthropic Claude <i>&#10035;</i> Google Gemini <i>&#10035;</i> Meta Llama <i>&#10035;</i> Mistral <i>&#10035;</i> Qwen <i>&#10035;</i> DeepSeek <i>&#10035;</i> Open Source <i>&#10035;</i></span>
+  </div>
+</div>
+
+<!-- ── Models ───────────────────────────────────────────────────────── -->
+<section class="section section-card-bg section-border-b" id="models">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow eyebrow-green">Models</span>
+      <h2 class="h2">Access the leading models in one place</h2>
+    </div>
+    <div class="model-grid">
+      <article class="model-card"><span class="model-mark">G</span><div><div class="model-name">ChatGPT</div><div class="model-vendor">OpenAI</div></div><span class="model-meta">CHAT &middot; WORKFLOWS</span></article>
+      <article class="model-card"><span class="model-mark">C</span><div><div class="model-name">Claude</div><div class="model-vendor">Anthropic</div></div><span class="model-meta">CHAT &middot; WORKFLOWS</span></article>
+      <article class="model-card"><span class="model-mark">G</span><div><div class="model-name">Gemini</div><div class="model-vendor">Google</div></div><span class="model-meta">CHAT &middot; WORKFLOWS</span></article>
+      <article class="model-card"><span class="model-mark">L</span><div><div class="model-name">Llama</div><div class="model-vendor">Meta</div></div><span class="model-meta">CHAT &middot; WORKFLOWS</span></article>
+      <article class="model-card"><span class="model-mark">M</span><div><div class="model-name">Mistral</div><div class="model-vendor">Mistral AI</div></div><span class="model-meta">CHAT &middot; WORKFLOWS</span></article>
+      <article class="model-card"><span class="model-mark">Q</span><div><div class="model-name">Qwen</div><div class="model-vendor">Alibaba</div></div><span class="model-meta">CHAT &middot; WORKFLOWS</span></article>
+      <article class="model-card"><span class="model-mark">D</span><div><div class="model-name">DeepSeek</div><div class="model-vendor">DeepSeek</div></div><span class="model-meta">CHAT &middot; WORKFLOWS</span></article>
+      <article class="model-card"><span class="model-mark">O</span><div><div class="model-name">Open Source</div><div class="model-vendor">Curated models</div></div><span class="model-meta">CHAT &middot; WORKFLOWS</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- ── Hosted in Australia ──────────────────────────────────────────── -->
+<section class="section">
+  <div class="wrap split split-map">
+    <div class="map-wrap map-wrap-lg">
+      <img src="/assets/australia.svg" alt="Map of Australia showing the Sydney data centre" width="800" height="755" loading="lazy">
+      <span class="map-dot map-dot-lg" aria-hidden="true"></span>
+      <div class="map-callout">Sydney data centre <span class="mono-tag">AU-SYD-01</span></div>
+    </div>
+    <div class="split-copy">
+      <span class="eyebrow eyebrow-green">Infrastructure</span>
+      <h2 class="h2">Hosted in Australia</h2>
+      <p class="lead">Your AI runs on Australian-owned infrastructure in Sydney. Data stays local, latency stays low, and you deal with a local team that understands Australian business.</p>
+      <ul class="ticks">
+        <li><span class="tick" aria-hidden="true"></span>Australian-owned and operated</li>
+        <li><span class="tick" aria-hidden="true"></span>Sydney data centre, local hosting</li>
+        <li><span class="tick" aria-hidden="true"></span>Built for Australian businesses</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── Security ─────────────────────────────────────────────────────── -->
+<section class="section section-green" id="security">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow eyebrow-mint">Security</span>
+      <h2 class="h2">Built for secure business use</h2>
+    </div>
+    <div class="sec-grid">
+      <article class="sec-card"><span class="sec-num">01</span><div class="sec-title">Australian-owned infrastructure</div><p>Your AI runs on infrastructure owned and operated in Australia, not routed offshore.</p></article>
+      <article class="sec-card"><span class="sec-num">02</span><div class="sec-title">Secure access to leading models</div><p>One secure gateway to every major model, with access controls your business manages.</p></article>
+      <article class="sec-card"><span class="sec-num">03</span><div class="sec-title">Chat and workflows</div><p>Use the same secure models in everyday chat and inside your business workflows.</p></article>
+      <article class="sec-card"><span class="sec-num">04</span><div class="sec-title">Business-ready deployment</div><p>Set up for your team without a technical project. We handle the infrastructure.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ── Sage Chat ────────────────────────────────────────────────────── -->
+<section class="section" id="sage-chat">
+  <div class="wrap split split-chat">
+    <div class="split-copy">
+      <span class="eyebrow eyebrow-green">Sage Chat</span>
+      <h2 class="h2">Meet Sage Chat</h2>
+      <p class="lead">Talk to multiple AI models in one place through a clean, secure chat interface.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-md" data-cta="login" href="#sage-chat">Login to Sage Chat</a>
+        <a class="btn btn-outline btn-md" data-cta="book" href="#book">Book a call</a>
+      </div>
+    </div>
+    <div class="chat-col">
+      <div class="card chat-card">
+        <div class="model-chips">
+          <span class="chip chip-on">Claude</span>
+          <span class="chip">ChatGPT</span>
+          <span class="chip">Gemini</span>
+          <span class="chip">+5</span>
+        </div>
+        <div class="bubble bubble-user">Draft a reply to this customer enquiry.</div>
+        <div class="bubble bubble-ai">Happy to help &mdash; here&rsquo;s a friendly draft that confirms the order and offers a delivery window&hellip;</div>
+      </div>
+      <!-- Drop the Loom <iframe> in here when the walkthrough is recorded. -->
+      <div class="embed-slot">
+        <span class="embed-label">loom walkthrough embed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Sage Cloud ───────────────────────────────────────────────────── -->
+<section class="section section-card-bg section-border-y" id="sage-cloud">
+  <div class="wrap">
+    <div class="section-head section-head-wide">
+      <span class="eyebrow eyebrow-green">Sage Cloud</span>
+      <h2 class="h2">Use AI inside your workflows</h2>
+      <p class="lead">Sage Cloud connects leading models to your automations, internal systems, and everyday workflows &mdash; without changing how your business runs.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-col">
+        <span class="flow-label">Your tools</span>
+        <div class="flow-item">Email &amp; CRM</div>
+        <div class="flow-item">Docs &amp; spreadsheets</div>
+        <div class="flow-item">Internal systems</div>
+        <div class="flow-item">Automations</div>
+      </div>
+      <div class="flow-line" aria-hidden="true"></div>
+      <div class="flow-hub">
+        <div class="hub-disc">SAIG</div>
+        <span class="flow-label">Secure gateway</span>
+      </div>
+      <div class="flow-line" aria-hidden="true"></div>
+      <div class="flow-col">
+        <span class="flow-label">Leading models</span>
+        <div class="flow-item">Claude &amp; ChatGPT</div>
+        <div class="flow-item">Gemini &amp; Llama</div>
+        <div class="flow-item">Mistral &amp; Qwen</div>
+        <div class="flow-item">DeepSeek &amp; open source</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Benefits ─────────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow eyebrow-green">Benefits</span>
+      <h2 class="h2">Why businesses choose SAIG</h2>
+    </div>
+    <div class="benefit-grid">
+      <article class="benefit-card"><div class="benefit-title">Australian hosting</div><p>Local infrastructure, local data, local support.</p></article>
+      <article class="benefit-card"><div class="benefit-title">One place for leading models</div><p>Every major model behind one login, one bill, one gateway.</p></article>
+      <article class="benefit-card"><div class="benefit-title">Chat and workflow access</div><p>The same models power your chat and your automations.</p></article>
+      <article class="benefit-card"><div class="benefit-title">Security first</div><p>Built from the ground up for secure business use.</p></article>
+      <article class="benefit-card"><div class="benefit-title">Business-friendly onboarding</div><p>No technical team needed &mdash; we set you up and stay close.</p></article>
+      <article class="benefit-card benefit-card-cta">
+        <div class="benefit-title">Ready to see it?</div>
+        <a class="benefit-link" data-cta="book" href="#book">Book a call &rarr;</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ──────────────────────────────────────────────────────────── -->
+<section class="section section-card-bg section-border-t" id="faq">
+  <div class="wrap wrap-narrow">
+    <h2 class="h2 h2-center">Questions, answered</h2>
+    <div class="faq" data-faq>
+      <div class="faq-item" data-open="true">
+        <h3><button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a-1" id="faq-q-1">What is SAIG?<span class="faq-sign" aria-hidden="true">&minus;</span></button></h3>
+        <div class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1"><div><p>SAIG (Secure Artificial Intelligence Grid) is an Australian-owned platform that gives businesses secure access to leading AI models through chat and workflows, hosted in Australia.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2">What is the difference between Sage Cloud and Sage Chat?<span class="faq-sign" aria-hidden="true">+</span></button></h3>
+        <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2"><div><p>Sage Chat is the chat interface where your team talks to AI models directly. Sage Cloud connects the same models into your automations, internal systems, and workflows.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3">Which models are available?<span class="faq-sign" aria-hidden="true">+</span></button></h3>
+        <div class="faq-a" id="faq-a-3" role="region" aria-labelledby="faq-q-3"><div><p>ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google), Llama (Meta), Mistral, Qwen, DeepSeek, and a curated set of open source models &mdash; all in one place.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">Is it hosted in Australia?<span class="faq-sign" aria-hidden="true">+</span></button></h3>
+        <div class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4"><div><p>Yes. SAIG runs on Australian-owned infrastructure in our Sydney data centre (AU-SYD-01).</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5">Can I use it in my workflows?<span class="faq-sign" aria-hidden="true">+</span></button></h3>
+        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div><p>Yes. Sage Cloud lets you use leading models inside automations, internal tools, and everyday business workflows.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-6" id="faq-q-6">Do I need a technical team?<span class="faq-sign" aria-hidden="true">+</span></button></h3>
+        <div class="faq-a" id="faq-a-6" role="region" aria-labelledby="faq-q-6"><div><p>No. SAIG is built for business users. We handle setup and infrastructure, and onboarding is designed for non-technical teams.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-7" id="faq-q-7">How do I access Sage Chat?<span class="faq-sign" aria-hidden="true">+</span></button></h3>
+        <div class="faq-a" id="faq-a-7" role="region" aria-labelledby="faq-q-7"><div><p>Use the Login to Sage Chat button at the top of this page. Access is set up for your team during onboarding.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-8" id="faq-q-8">How do I get pricing?<span class="faq-sign" aria-hidden="true">+</span></button></h3>
+        <div class="faq-a" id="faq-a-8" role="region" aria-labelledby="faq-q-8"><div><p>Book a call. We tailor pricing to your team size, usage, and workflow needs, and walk you through it on the call.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Final CTA ────────────────────────────────────────────────────── -->
+<section class="final-cta" id="book">
+  <div class="final-inner">
+    <h2 class="final-title">Bring secure AI into <em>your business</em></h2>
+    <p class="final-sub">Book a call to explore fit, workflows, and your security requirements. No technical team needed on your side.</p>
+    <div class="btn-row btn-row-center">
+      <a class="btn btn-cream btn-lg" data-cta="book" href="#book">Book a call</a>
+      <a class="btn btn-hollow btn-lg" data-cta="login" href="#sage-chat">Login to Sage Chat</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-motif" aria-hidden="true">
+    <img src="/assets/australia.svg" alt="" width="800" height="755" loading="lazy">
+    <span class="map-dot map-dot-sm"></span>
+  </div>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/assets/saig-logo.png" alt="SAIG" width="432" height="220" loading="lazy">
+        <p class="footer-line">Secure AI, <em>made at home.</em></p>
+        <span class="mono-tag">SECURE ARTIFICIAL INTELLIGENCE GRID &#10035; AU-SYD-01</span>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <span class="flow-label">Product</span>
+          <a href="#sage-cloud">Sage Cloud</a>
+          <a href="#sage-chat">Sage Chat</a>
+          <a href="#models">Models</a>
+        </div>
+        <div class="footer-col">
+          <span class="flow-label">Company</span>
+          <a href="#security">Security</a>
+          <a data-cta="book" href="#book">Book a call</a>
+          <a data-cta="login" href="#sage-chat">Login</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> SAIG &middot; Sydney, Australia</span>
+      <span class="status"><span class="dot-blink" aria-hidden="true"></span>All systems operational</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/main.js" defer></script>
+</body>
+</html>
