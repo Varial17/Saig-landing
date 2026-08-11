@@ -98,6 +98,22 @@ console error; there is a "Calendar not loading?" fallback link under the card, 
 To swap schedulers, replace the `.iclosed-widget` div and its `<script>` in
 `site/index.html` and update those four directives to the new host.
 
+The embed is themed to the site beige, so it sits in a beige band (`.booking`)
+rather than a card — anything painted behind it shows as a frame around the edges.
+
+## A note on hosting claims
+
+Sydney is the default, but customers can and do run workloads in the US for the cost
+saving, so the page must not state that data never leaves Australia. Two FAQ entries
+("Is it hosted in Australia?" and "Can we host outside Australia?") set this out, and
+the hero tile, Security card 01 and the Infrastructure lead are worded as "by default"
+/ "the region you choose" for the same reason.
+
+Keep the distinction when editing copy: **ownership** claims ("Australian-owned and
+operated", "Sovereign infra") are true for every customer. **Residency** claims ("never
+leaves AU", "not routed offshore", "data stays local") are not, and are the ones that
+would be misleading under Australian Consumer Law.
+
 ## Design system
 
 Set as CSS custom properties at the top of `site/styles.css`:

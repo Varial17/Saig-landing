@@ -774,7 +774,10 @@ section[id] { scroll-margin-top: 96px; }
 
 /* ── Final CTA ──────────────────────────────────────────────── */
 
-.final-cta { padding: 130px 32px; background: var(--g); color: var(--card); text-align: center; }
+/* Two bands in one section: green for the headline, beige for the booking
+   embed. Padding lives on the bands so the beige runs edge to edge. */
+.final-cta { padding: 0; background: var(--g); color: var(--card); text-align: center; }
+.final-head { padding: 130px 32px 84px; }
 .final-inner { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 26px; }
 .final-title {
   font-family: var(--serif);
@@ -787,13 +790,15 @@ section[id] { scroll-margin-top: 96px; }
 
 /* ── Booking embed (#book) ──────────────────────────────────── */
 
-.booking { max-width: 920px; margin: 44px auto 0; }
+.booking { background: var(--beige); padding: 72px 32px 56px; }
+.booking-inner { max-width: 920px; margin: 0 auto; }
 
+/* No background and no shadow here on purpose. The iClosed embed is themed to
+   match the site palette, so anything painted behind it just draws a pale
+   frame around the edges where the widget doesn't reach. */
 .booking-card {
-  background: var(--card);
   border-radius: var(--r);
   overflow: hidden;
-  box-shadow: 0 18px 50px rgba(27, 29, 26, .18);
   min-height: 620px;
 }
 /* The vendor snippet carries its own inline height; this just makes sure the
@@ -801,11 +806,10 @@ section[id] { scroll-margin-top: 96px; }
 .booking-card .iclosed-widget { display: block; width: 100%; }
 .booking-card iframe { width: 100%; border: 0; display: block; }
 
-.booking-fallback { margin-top: 16px; text-align: center; font-size: 14px; color: rgba(252, 251, 248, .72); }
-.booking-fallback a { color: var(--card); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
-.booking-fallback a:hover { color: var(--mint); }
-.booking-fallback-noscript { margin: 0; padding: 28px 24px; color: var(--sub); }
-.booking-fallback-noscript a { color: var(--g); }
+.booking-fallback { margin-top: 16px; text-align: center; font-size: 14px; color: var(--sub-2); }
+.booking-fallback a { color: var(--g); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.booking-fallback a:hover { color: #144936; }
+.booking-fallback-noscript { margin: 0; padding: 28px 24px; }
 
 /* ── Footer ─────────────────────────────────────────────────── */
 
@@ -857,7 +861,8 @@ section[id] { scroll-margin-top: 96px; }
 
 @media (max-width: 1040px) {
   .section { padding: 88px 24px; }
-  .final-cta { padding: 104px 24px; }
+  .final-head { padding: 104px 24px 68px; }
+  .booking { padding: 56px 24px 48px; }
   .site-footer { padding: 80px 24px 32px; }
   .hero { padding: 150px 24px 72px; }
   .site-header { padding: 0 16px; }
@@ -919,7 +924,8 @@ section[id] { scroll-margin-top: 96px; }
 @media (max-width: 640px) {
   .hero { padding: 130px 20px 64px; }
   .section { padding: 72px 20px; }
-  .final-cta { padding: 88px 20px; }
+  .final-head { padding: 88px 20px 52px; }
+  .booking { padding: 44px 20px 40px; }
   .site-footer { padding: 72px 20px 28px; }
 
   .brand-tag { display: none; }
