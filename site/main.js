@@ -87,10 +87,38 @@ var LINKS = {
 
   /* ── Hero: rotating headline word ────────────────────────── */
 
-  var rotator = document.querySelector('[data-rotator]');
-  if (rotator) {
+  /* The wrapper is pinned to the measured width of the word it holds, so the
+     comma after it glides rather than jumping. Widths are measured with a
+     hidden twin inside the wrapper — the headline is sized with clamp() and
+     the metrics move again when the webfont swaps in, so the numbers can't be
+     hard-coded and have to be re-taken on resize and on fonts.ready. */
+
+  var rotWrap = document.querySelector('[data-rotator-wrap]');
+  var rotator = rotWrap && rotWrap.querySelector('[data-rotator]');
+
+  if (rotWrap && rotator) {
     var words = ['chat', 'workflows', 'operations'];
     var wordIdx = 0;
+
+    var ghost = document.createElement('span');
+    ghost.className = 'rotator-word rotator-ghost';
+    ghost.setAttribute('aria-hidden', 'true');
+    rotWrap.appendChild(ghost);
+
+    var sizeTo = function (word, animate) {
+      ghost.textContent = word;
+      var w = ghost.getBoundingClientRect().width;
+      if (!w) return;
+      if (!animate) rotWrap.style.transition = 'none';
+      rotWrap.style.width = w.toFixed(2) + 'px';
+      if (!animate) {
+        void rotWrap.offsetWidth;   // flush, or the suppressed transition still runs
+        rotWrap.style.transition = '';
+      }
+    };
+
+    sizeTo(words[0], false);
+
     setInterval(function () {
       wordIdx = (wordIdx + 1) % words.length;
       // Swap the node so the entrance animation replays.
@@ -98,7 +126,51 @@ var LINKS = {
       next.textContent = words[wordIdx];
       rotator.replaceWith(next);
       rotator = next;
+      sizeTo(words[wordIdx], true);
     }, 2600);
+
+    var remeasure = function () { sizeTo(words[wordIdx], false); };
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(remeasure, 120);
+    });
+
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(remeasure);
+  }
+
+  /* ── Hero: fade the background in once it has decoded ─────── */
+
+  /* The starting opacity is applied here, never in the stylesheet — with JS
+     off the background has to render normally. */
+
+  var heroFade = document.querySelector('.hero-bg');
+  if (heroFade) {
+    var small = window.matchMedia('(max-width: 900px)').matches;
+    var probe = new Image();
+
+    var reveal = function () {
+      if (heroFade.classList.contains('is-loaded')) return;
+      heroFade.classList.add('is-loaded');
+      heroFade.style.removeProperty('opacity');
+    };
+
+    probe.onload = reveal;
+    // No WebP support: the stylesheet falls back to the JPEG, so probe it too.
+    probe.onerror = function () {
+      probe.onerror = reveal;
+      probe.onload = reveal;
+      probe.src = small ? '/assets/hero-bg-900.jpg' : '/assets/hero-bg.jpg';
+    };
+    probe.src = small ? '/assets/hero-bg-900.webp' : '/assets/hero-bg.webp';
+
+    // Already cached — don't blink it out just to fade it back in.
+    if (!probe.complete) {
+      heroFade.style.opacity = '0';
+      heroFade.classList.add('is-fading');
+      setTimeout(reveal, 3000);   // never leave the hero blank
+    }
   }
 
   /* ── Hero: chat typing effect ────────────────────────────── */

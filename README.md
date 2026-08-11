@@ -103,6 +103,10 @@ Google Fonts.
   nav instead of at ~17px tall. To restore the prototype's exact rendering, swap
   `site/assets/saig-logo.png` for `design/project/saig-logo.png` and set
   `.brand img { height: 38px }` / `.footer-brand img { height: 44px }`.
-- `hero-bg.png` was 2.4 MB; it ships as WebP (216 KB) with a JPEG fallback.
+- `hero-bg.png` was 2.4 MB. It ships as two WebP sizes with JPEG fallbacks:
+  `hero-bg.webp` (1600px, 134 KB) and `hero-bg-900.webp` (900px, 50 KB), swapped in
+  `styles.css` at `max-width: 900px`. The `<link rel="preload">` tags in `index.html`
+  are media-scoped to match — **keep the `media` attributes**, or the browser
+  preloads both and every visitor downloads the hero twice.
 - All motion (marquee, typing, parallax, rotating headline, pulsing Sydney dot) is
   disabled under `prefers-reduced-motion`.

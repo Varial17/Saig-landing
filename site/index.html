@@ -24,7 +24,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="/assets/hero-bg.webp" type="image/webp">
+<!-- Media-scoped so exactly ONE hero variant is ever fetched. Dropping the
+     media attribute makes the browser preload both and download twice. -->
+<link rel="preload" as="image" href="/assets/hero-bg-900.webp" type="image/webp" media="(max-width: 900px)">
+<link rel="preload" as="image" href="/assets/hero-bg.webp" type="image/webp" media="(min-width: 901px)">
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -87,9 +90,11 @@
       <span class="stamp">EST. SYDNEY &#10035; AU-OWNED</span>
     </div>
 
+    <!-- .rot-break only applies ≥1025px, where the longer rotating words would
+         otherwise wrap and change the h1 height mid-rotation. -->
     <h1 class="hero-title">
-      Localised AI inference for
-      <em class="rotator"><span data-rotator>chat</span></em>,<br>
+      Localised AI inference for<br class="rot-break">
+      <span class="rotator" data-rotator-wrap><span class="rotator-word" data-rotator>chat</span></span>,<br>
       hosted in Australia.
     </h1>
 

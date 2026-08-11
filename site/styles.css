@@ -180,8 +180,8 @@ h1, h2, h3, p { margin: 0; }
 
 .nav-toggle {
   display: none;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--card);
@@ -262,6 +262,21 @@ h1, h2, h3, p { margin: 0; }
   will-change: transform;
 }
 
+/* Phones get the 900px pair. The matching <link rel="preload"> in the head is
+   media-scoped the same way, so only one variant is ever downloaded. */
+@media (max-width: 900px) {
+  .hero-bg {
+    background-image: url("/assets/hero-bg-900.jpg");
+    background-image: -webkit-image-set(url("/assets/hero-bg-900.webp") type("image/webp"), url("/assets/hero-bg-900.jpg") type("image/jpeg"));
+    background-image: image-set(url("/assets/hero-bg-900.webp") type("image/webp"), url("/assets/hero-bg-900.jpg") type("image/jpeg"));
+  }
+}
+
+/* The starting opacity is set by JS (see main.js), never here — with JS off the
+   image must still be visible. .is-fading only supplies the transition. */
+.hero-bg.is-fading { transition: opacity .5s ease; }
+.hero-bg.is-loaded { opacity: 1; }
+
 .hero-veil {
   position: absolute;
   inset: 0;
@@ -323,8 +338,40 @@ h1, h2, h3, p { margin: 0; }
   letter-spacing: -.01em;
 }
 
-.rotator { color: var(--g); font-style: italic; }
-.rotator > span { display: inline-block; animation: saigWordIn .55s ease; }
+/* The wrapper's width is pinned by JS to the measured width of the current
+   word, so the comma that follows glides instead of jumping. The padding /
+   negative-margin pair keeps the descender in "operations" out of the clip. */
+.rotator {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  padding-bottom: .14em;
+  margin-bottom: -.14em;
+  transition: width .5s ease;
+  color: var(--g);
+  font-style: italic;
+}
+.rotator-word { display: inline-block; animation: saigWordIn .55s ease; }
+
+/* Hidden twin used to measure the next word at the live font metrics. */
+.rotator-ghost {
+  position: absolute;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  pointer-events: none;
+  white-space: nowrap;
+  animation: none;
+}
+
+/* Forces the rotating word onto its own line at the widths where the longer
+   words would otherwise wrap and add a third line mid-rotation. */
+.rot-break { display: none; }
+@media (min-width: 1025px) {
+  .rot-break { display: inline; }
+}
 
 .hero-sub { max-width: 620px; font-size: 18px; line-height: 1.65; color: var(--sub); }
 
@@ -506,6 +553,9 @@ h1, h2, h3, p { margin: 0; }
 /* ── Section scaffolding ────────────────────────────────────── */
 
 .section { padding: 110px 32px; }
+/* The header is sticky — without this it sits on top of the heading you just
+   jumped to from the nav. */
+section[id] { scroll-margin-top: 96px; }
 .section-card-bg { background: var(--card); }
 .section-border-b { border-bottom: 1px solid var(--line); }
 .section-border-t { border-top: 1px solid var(--line); }
@@ -808,6 +858,24 @@ h1, h2, h3, p { margin: 0; }
   .nav-links, .nav-actions { display: none; }
   .nav-toggle { display: flex; }
   .nav-pill { padding: 8px 8px 8px 18px; gap: 12px; }
+
+  /* Touch targets: everything tappable clears the 44px minimum, in both
+     dimensions — short labels like "Login" fail on width, not just height. */
+  .footer-col a,
+  .benefit-link,
+  .brand,
+  .mobile-menu > a,
+  .skip-link,
+  .mobile-menu-actions .btn {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .footer-col { gap: 4px; }
+  .footer-col a,
+  .benefit-link { align-self: flex-start; }
+  .skip-link { justify-content: center; }
 }
 
 @media (max-width: 760px) {
@@ -833,7 +901,16 @@ h1, h2, h3, p { margin: 0; }
 
   .brand-tag { display: none; }
   .hero-sub, .lead { font-size: 16px; }
-  .hero-badges { gap: 12px; }
+
+  .hero-inner { gap: 22px; }
+  .hero-badges { gap: 10px; }
+  .badge { font-size: 11px; letter-spacing: .1em; padding: 8px 14px; }
+  .stamp { font-size: 10px; padding: 6px 10px; }
+
+  /* Stacked full-width CTAs — side by side they end up too narrow to hit. */
+  .hero-ctas { flex-direction: column; align-self: stretch; gap: 10px; }
+  .hero-ctas .btn { width: 100%; }
+  .hero-cards { margin-top: 48px; }
 
   .model-grid, .sec-grid, .benefit-grid { grid-template-columns: 1fr; }
   .hero-tiles { grid-template-columns: 1fr; }
@@ -855,7 +932,7 @@ h1, h2, h3, p { margin: 0; }
   .dot-blink,
   .caret,
   .map-dot,
-  .rotator > span { animation: none !important; }
+  .rotator-word { animation: none !important; }
   .faq-a { transition: none; }
   .hero-bg { transform: none !important; }
   * { transition-duration: .01ms !important; }
