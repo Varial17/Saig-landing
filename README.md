@@ -46,13 +46,13 @@ root-absolute (`/assets/…`), which is what Pages serves.
 `site` as the output directory is deliberate — it keeps `design/` (including the chat
 transcripts) off the public site.
 
-## Before going live — three things to fill in
+## Before going live
 
 1. **CTA links.** Both live at the top of `site/main.js`:
 
    ```js
    var LINKS = {
-     book:  null,  // e.g. 'https://cal.com/saig/intro'
+     book:  null,  // on-page: scrolls to the #book booking section
      login: null   // e.g. 'https://chat.saig.com.au/login'
    };
    ```
@@ -60,6 +60,11 @@ transcripts) off the public site.
    Every "Book a call" / "Login to Sage Chat" button on the page carries
    `data-cta="book"` or `data-cta="login"` and picks these up automatically.
    While they're `null` the buttons just scroll to the relevant section.
+
+   **Leave `book` as `null`.** Booking happens on the page — all six "Book a call"
+   buttons are anchors to `#book`, which is the iClosed embed at the bottom. Setting
+   a URL here sends people off-site and skips that section. Only `login` still needs
+   a real URL.
 
 2. **Domain.** `https://saig.com.au` is a placeholder. Replace it in
    `site/index.html` (canonical + Open Graph tags), `site/robots.txt`, and
@@ -76,6 +81,22 @@ transcripts) off the public site.
 
    `frame-src https://www.loom.com` is already allowed in `site/_headers`. Any other
    embed host needs adding there or the iframe silently fails to load.
+
+## Booking section (`#book`)
+
+The bottom section embeds the iClosed scheduler (`app.iclosed.io/e/Phlo/saig`) and is
+the target of every "Book a call" on the page.
+
+Because it is third-party, it only works if `site/_headers` keeps `app.iclosed.io` in
+**`script-src`** (widget.js), **`frame-src`** (the calendar iframe), **`connect-src`**
+(its callbacks) and **`img-src`**, plus `'unsafe-inline'` in `style-src` — the vendor
+snippet carries an inline `style` attribute, and widgets of this kind usually inject a
+`<style>` block too. Tighten any of those and the calendar goes blank with only a
+console error; there is a "Calendar not loading?" fallback link under the card, and a
+`<noscript>` fallback inside it, so visitors are never fully stuck.
+
+To swap schedulers, replace the `.iclosed-widget` div and its `<script>` in
+`site/index.html` and update those four directives to the new host.
 
 ## Design system
 

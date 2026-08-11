@@ -7,7 +7,14 @@
   Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
   # If you add inline <script>/<style> or a third-party embed, widen this first —
   # a too-tight CSP fails silently in the browser console.
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; frame-src https://www.loom.com
+  #
+  # app.iclosed.io is the booking widget in the #book section. It needs
+  # script-src (widget.js), frame-src (the calendar iframe it injects),
+  # connect-src (its callbacks) and img-src. 'unsafe-inline' on style-src is
+  # required by the vendor snippet itself — it carries an inline style
+  # attribute, which style-src-attr blocks without it; widgets of this kind
+  # also commonly inject a <style> block. It is the one loose directive here.
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'self'; img-src 'self' data: https://app.iclosed.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://app.iclosed.io; connect-src 'self' https://app.iclosed.io; frame-src https://www.loom.com https://app.iclosed.io
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable

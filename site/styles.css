@@ -785,6 +785,28 @@ section[id] { scroll-margin-top: 96px; }
 .final-title em { color: var(--mint); }
 .final-sub { font-size: 18px; line-height: 1.65; color: rgba(252, 251, 248, .78); max-width: 560px; }
 
+/* ── Booking embed (#book) ──────────────────────────────────── */
+
+.booking { max-width: 920px; margin: 44px auto 0; }
+
+.booking-card {
+  background: var(--card);
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(27, 29, 26, .18);
+  min-height: 620px;
+}
+/* The vendor snippet carries its own inline height; this just makes sure the
+   iframe it injects actually fills the card. */
+.booking-card .iclosed-widget { display: block; width: 100%; }
+.booking-card iframe { width: 100%; border: 0; display: block; }
+
+.booking-fallback { margin-top: 16px; text-align: center; font-size: 14px; color: rgba(252, 251, 248, .72); }
+.booking-fallback a { color: var(--card); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.booking-fallback a:hover { color: var(--mint); }
+.booking-fallback-noscript { margin: 0; padding: 28px 24px; color: var(--sub); }
+.booking-fallback-noscript a { color: var(--g); }
+
 /* ── Footer ─────────────────────────────────────────────────── */
 
 .site-footer { position: relative; overflow: hidden; background: var(--beige); padding: 96px 32px 36px; }
@@ -866,7 +888,8 @@ section[id] { scroll-margin-top: 96px; }
   .brand,
   .mobile-menu > a,
   .skip-link,
-  .mobile-menu-actions .btn {
+  .mobile-menu-actions .btn,
+  .booking-fallback a {
     min-height: 44px;
     min-width: 44px;
     display: inline-flex;

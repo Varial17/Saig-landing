@@ -3,17 +3,21 @@
    ============================================================ */
 
 /* ─────────────────────────────────────────────────────────────
-   1. CTA LINKS — the only thing you need to edit to go live.
+   1. CTA LINKS
 
-   Replace the two placeholder values below with the real URLs.
-   Every "Book a call" and "Login to Sage Chat" button on the
-   page is wired to these (they carry data-cta="book" / "login").
+   Every "Book a call" and "Login to Sage Chat" button on the page
+   is wired to these (they carry data-cta="book" / "login").
 
    Leave a value as null to keep the on-page anchor behaviour.
+
+   book stays null on purpose — booking is handled on the page by
+   the iClosed embed in the #book section, and every "Book a call"
+   scrolls there. Setting a URL here would send people off-site and
+   bypass that section entirely.
    ───────────────────────────────────────────────────────────── */
 
 var LINKS = {
-  book:  null,  // e.g. 'https://cal.com/saig/intro'
+  book:  null,  // on-page: scrolls to the #book booking section
   login: null   // e.g. 'https://chat.saig.com.au/login'
 };
 
