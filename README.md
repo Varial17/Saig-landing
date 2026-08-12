@@ -48,39 +48,40 @@ transcripts) off the public site.
 
 ## Before going live
 
-1. **CTA links.** Both live at the top of `site/main.js`:
+1. ~~**CTA links.**~~ **Done.** Both live at the top of `site/main.js`:
 
    ```js
    var LINKS = {
-     book:  null,  // on-page: scrolls to the #book booking section
-     login: null   // e.g. 'https://chat.saig.com.au/login'
+     book:  null,                      // on-page: scrolls to the #book booking section
+     login: 'https://chat.saig.co/'    // Sage Chat
    };
    ```
 
    Every "Book a call" / "Login to Sage Chat" button on the page carries
    `data-cta="book"` or `data-cta="login"` and picks these up automatically.
-   While they're `null` the buttons just scroll to the relevant section.
+   A `null` value leaves the button on its on-page anchor.
 
    **Leave `book` as `null`.** Booking happens on the page — all six "Book a call"
    buttons are anchors to `#book`, which is the iClosed embed at the bottom. Setting
-   a URL here sends people off-site and skips that section. Only `login` still needs
-   a real URL.
+   a URL here sends people off-site and skips that section.
+
+   `login` is cross-origin, so the five "Login to Sage Chat" buttons get
+   `target="_blank" rel="noopener"` automatically. With JS off they fall back to the
+   `#sage-chat` anchor.
 
 2. **Domain.** `https://saig.com.au` is a placeholder. Replace it in
    `site/index.html` (canonical + Open Graph tags), `site/robots.txt`, and
    `site/sitemap.xml`.
 
-3. **Loom walkthrough.** The Sage Chat section has a striped placeholder box.
-   Drop the embed in:
-
-   ```html
-   <div class="embed-slot">
-     <iframe src="https://www.loom.com/embed/YOUR_VIDEO_ID" allowfullscreen title="Sage Chat walkthrough"></iframe>
-   </div>
-   ```
+3. ~~**Loom walkthrough.**~~ **Done.** The Sage Chat section embeds the walkthrough
+   in `.embed-slot`, lazily loaded since it sits below the fold.
 
    `frame-src https://www.loom.com` is already allowed in `site/_headers`. Any other
    embed host needs adding there or the iframe silently fails to load.
+
+   The frame's `aspect-ratio` in `styles.css` is **`208 / 135`** — the ratio of the
+   current recording (1664×1080), not 16:9. If the walkthrough is re-recorded at a
+   different size, update that number or the player letterboxes inside its frame.
 
 ## Booking section (`#book`)
 

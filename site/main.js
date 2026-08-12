@@ -17,8 +17,8 @@
    ───────────────────────────────────────────────────────────── */
 
 var LINKS = {
-  book:  null,  // on-page: scrolls to the #book booking section
-  login: null   // e.g. 'https://chat.saig.com.au/login'
+  book:  null,                      // on-page: scrolls to the #book booking section
+  login: 'https://chat.saig.co/'    // Sage Chat
 };
 
 (function () {

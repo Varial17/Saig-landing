@@ -655,24 +655,14 @@ section[id] { scroll-margin-top: 96px; }
 .chip-on { border-color: var(--g); color: var(--g); }
 
 .embed-slot {
-  border: 1px dashed var(--mint);
+  border: 1px solid var(--line);
   border-radius: var(--r);
-  background: repeating-linear-gradient(-45deg, #FCFBF8, #FCFBF8 10px, #F5F1E8 10px, #F5F1E8 20px);
-  min-height: 180px;
-  display: grid;
-  place-items: center;
+  background: var(--card);
   overflow: hidden;
 }
-.embed-slot iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; display: block; }
-.embed-label {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--sub-2);
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 8px 14px;
-}
+/* Ratio of the current Loom recording (1664×1080), not 16:9 — a mismatch here
+   letterboxes the player inside the frame. Update if it is re-recorded. */
+.embed-slot iframe { width: 100%; aspect-ratio: 208 / 135; border: 0; display: block; }
 
 /* ── Sage Cloud flow ────────────────────────────────────────── */
 
